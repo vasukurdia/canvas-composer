@@ -1,0 +1,43 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  min-width: 160px;
+  flex-shrink: 0;
+}
+
+.addWrapper {
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.addBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  padding: 10px 16px;
+  background: #00c2c7;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.addBtn:hover {
+  background: #00adb2;
+}
+
+.addBtn:active {
+  transform: scale(0.97);
+}
+
+.plus {
+  font-size: 16px;
+  line-height: 1;
+}

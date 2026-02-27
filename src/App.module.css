@@ -1,0 +1,36 @@
+.root {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.card {
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.1);
+  padding: 28px 28px 36px;
+  width: 100%;
+  max-width: 960px;
+}
+
+.title {
+  font-size: 34px;
+  font-weight: 900;
+  color: #00c2c7;
+  margin-bottom: 24px;
+  letter-spacing: -1px;
+}
+
+.body {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+}
+
+@media (max-width: 700px) {
+  .body {
+    flex-direction: column;
+  }
+}

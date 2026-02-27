@@ -1,0 +1,36 @@
+.wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 7px 32px 7px 10px;
+  font-size: 13px;
+  color: #333;
+  background: #fff;
+  width: 100%;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.15s;
+}
+
+.select:hover {
+  border-color: #aaa;
+}
+
+.select:focus {
+  border-color: #00c2c7;
+}
+
+.chevron {
+  position: absolute;
+  right: 10px;
+  font-size: 12px;
+  color: #999;
+  pointer-events: none;
+}
