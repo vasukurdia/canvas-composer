@@ -1,4 +1,3 @@
-import React from 'react';
 import { ControlGroup } from './ControlGroup';
 import { Select } from './Select';
 import type { ShapeType, ColorName, PositionKey } from '../types';

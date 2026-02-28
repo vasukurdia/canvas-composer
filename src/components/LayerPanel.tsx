@@ -1,4 +1,3 @@
-import React from 'react';
 import type { Layer } from '../types';
 import { LayerItem } from './LayerItem';
 import styles from './LayerPanel.module.css';
