@@ -16,10 +16,10 @@ const POS_GRID: PositionKey[] = ['TL','TC','TR','ML','C','MR','BL','BC','BR'];
 
 function PositionGrid({ value, onChange }: { value: PositionKey; onChange: (v: PositionKey) => void }) {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 28px)', gap: 4 }}>
+    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 32px)', gap: 5 }}>
       {POS_GRID.map((pos) => (
         <button key={pos} onClick={() => onChange(pos)} title={pos} style={{
-          width: 28, height: 28,
+          width: 32, height: 32,
           background: value === pos ? 'var(--accent)' : 'var(--surface2)',
           border: value === pos ? '1px solid var(--accent)' : '1px solid var(--border2)',
           borderRadius: 2, cursor: 'pointer',
@@ -27,7 +27,7 @@ function PositionGrid({ value, onChange }: { value: PositionKey; onChange: (v: P
           transition: 'all 0.12s', padding: 0,
         }}>
           <div style={{
-            width: 6, height: 6, borderRadius: '50%',
+            width: 7, height: 7, borderRadius: '50%',
             background: value === pos ? '#000' : 'var(--text-muted)',
           }} />
         </button>
@@ -49,8 +49,9 @@ function StyledSelect<T extends string | number>({ value, onChange, options }: {
         }}
         style={{
           width: '100%', background: 'var(--surface2)', border: '1px solid var(--border2)',
-          color: 'var(--text)', padding: '7px 28px 7px 10px', borderRadius: 2,
-          appearance: 'none', fontSize: 12, fontFamily: 'var(--font-mono)',
+          color: 'var(--text)', padding: '8px 28px 8px 10px', borderRadius: 2,
+          appearance: 'none', fontSize: 13,
+          fontFamily: 'var(--font-mono)',
           cursor: 'pointer', outline: 'none', transition: 'border-color 0.15s',
         }}
         onFocus={(e) => (e.target.style.borderColor = 'var(--accent)')}
@@ -62,7 +63,7 @@ function StyledSelect<T extends string | number>({ value, onChange, options }: {
       </select>
       <span style={{
         position: 'absolute', right: 9, top: '50%', transform: 'translateY(-50%)',
-        color: 'var(--text-muted)', pointerEvents: 'none', fontSize: 10,
+        color: 'var(--text-muted)', pointerEvents: 'none', fontSize: 12,
       }}>▾</span>
     </div>
   );
@@ -71,8 +72,12 @@ function StyledSelect<T extends string | number>({ value, onChange, options }: {
 function Label({ children }: { children: React.ReactNode }) {
   return (
     <div style={{
-      fontSize: 9, fontWeight: 700, letterSpacing: '0.12em',
-      textTransform: 'uppercase', color: 'var(--text-dim)', marginBottom: 6,
+      fontSize: 11,
+      fontWeight: 700,
+      letterSpacing: '0.12em',
+      textTransform: 'uppercase',
+      color: 'var(--text-dim)',
+      marginBottom: 6,
     }}>{children}</div>
   );
 }
@@ -83,10 +88,10 @@ function Divider() {
 
 function ColorPicker({ value, onChange }: { value: ColorName; onChange: (v: ColorName) => void }) {
   return (
-    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 7 }}>
       {COLORS.map((c) => (
         <button key={c} title={c} onClick={() => onChange(c)} style={{
-          width: 22, height: 22, borderRadius: 2, background: COLOR_MAP[c],
+          width: 26, height: 26, borderRadius: 2, background: COLOR_MAP[c],
           border: value === c ? '2px solid var(--accent)' : '2px solid transparent',
           cursor: 'pointer', padding: 0, transition: 'transform 0.1s',
           boxShadow: value === c ? '0 0 0 1px var(--accent)' : 'none',
@@ -104,16 +109,16 @@ function ShapePicker({ value, onChange }: { value: ShapeType; onChange: (v: Shap
     <div style={{ display: 'flex', gap: 6 }}>
       {SHAPES.map((s) => (
         <button key={s} onClick={() => onChange(s)} title={s} style={{
-          flex: 1, padding: '8px 0',
+          flex: 1, padding: '9px 0',
           background: value === s ? 'var(--accent)' : 'var(--surface2)',
           border: value === s ? '1px solid var(--accent)' : '1px solid var(--border2)',
           borderRadius: 2, color: value === s ? '#000' : 'var(--text-muted)',
           cursor: 'pointer', display: 'flex', alignItems: 'center',
-          justifyContent: 'center', gap: 5, fontSize: 10,
+          justifyContent: 'center', gap: 6, fontSize: 11,
           fontFamily: 'var(--font-mono)', fontWeight: 700,
           letterSpacing: '0.05em', transition: 'all 0.12s',
         }}>
-          <ShapeIcon type={s} size={12} />
+          <ShapeIcon type={s} size={13} />
           {s.toUpperCase().slice(0, 3)}
         </button>
       ))}
@@ -134,7 +139,7 @@ function LayerRow({ index, layer, onDelete, isNew }: {
       onMouseLeave={() => setHovered(false)}
       style={{
         display: 'flex', alignItems: 'center', gap: 8,
-        padding: '7px 8px', borderRadius: 2,
+        padding: '8px 8px', borderRadius: 2,
         background: hovered ? 'var(--surface2)' : 'transparent',
         border: '1px solid',
         borderColor: isNew ? 'var(--accent)' : hovered ? 'var(--border2)' : 'transparent',
@@ -143,42 +148,36 @@ function LayerRow({ index, layer, onDelete, isNew }: {
       }}
     >
       <div style={{
-        width: 8, height: 8, borderRadius: '50%',
+        width: 10, height: 10, borderRadius: '50%',
         background: COLOR_MAP[layer.color], flexShrink: 0,
         boxShadow: `0 0 6px ${COLOR_MAP[layer.color]}88`,
       }} />
       <span style={{ color: 'var(--text-muted)', flexShrink: 0 }}>
-        <ShapeIcon type={layer.type} size={11} />
+        <ShapeIcon type={layer.type} size={13} />
       </span>
-
-      {/* FIX #6 — position badge */}
       <span style={{
-        flex: 1, fontSize: 11, color: 'var(--text)',
+        flex: 1, fontSize: 13, color: 'var(--text)',
         letterSpacing: '0.03em', overflow: 'hidden',
         textOverflow: 'ellipsis', whiteSpace: 'nowrap',
       }}>
         #{String(index + 1).padStart(2, '0')} {layer.type}
-        <span style={{ color: 'var(--text-muted)', marginLeft: 4 }}>[{layer.position}]</span>
+        <span style={{ color: 'var(--text-muted)', marginLeft: 5 }}>[{layer.position}]</span>
       </span>
-
-      {/* FIX #7 — size badge */}
       <span style={{
-        fontSize: 9, color: 'var(--text-muted)', background: 'var(--surface)',
-        padding: '2px 5px', borderRadius: 2, letterSpacing: '0.05em', flexShrink: 0,
+        fontSize: 11, color: 'var(--text-muted)', background: 'var(--surface)',
+        padding: '2px 6px', borderRadius: 2, letterSpacing: '0.05em', flexShrink: 0,
       }}>
         {layer.size}px
       </span>
-
       <button onClick={() => onDelete(layer.id)} style={{
         background: 'none', border: 'none',
         color: hovered ? 'var(--danger)' : 'var(--text-dim)',
         cursor: 'pointer', padding: '2px 4px', borderRadius: 2,
-        fontSize: 12, lineHeight: 1, transition: 'color 0.15s', flexShrink: 0,
+        fontSize: 14, lineHeight: 1, transition: 'color 0.15s', flexShrink: 0,
       }} title="Delete layer">✕</button>
     </div>
   );
 }
-
 
 export default function App() {
   const [shape, setShape]       = useState<ShapeType>('Circle');
@@ -205,47 +204,45 @@ export default function App() {
 
       <div style={{
         display: 'grid',
-        gridTemplateColumns: '240px 1fr 220px',
-        gridTemplateRows: '48px 1fr',
+        gridTemplateColumns: '250px 1fr 230px',
+        gridTemplateRows: '52px 1fr',
         height: '100vh',
       }}>
 
-        {/* TOPBAR */}
+        {/* ── TOPBAR ── */}
         <div style={{
           gridColumn: '1 / -1', background: 'var(--surface)',
           borderBottom: '1px solid var(--border)',
           display: 'flex', alignItems: 'center', padding: '0 20px', gap: 16,
         }}>
           <div style={{
-            width: 24, height: 24, background: 'var(--accent)', borderRadius: 2,
+            width: 28, height: 28, background: 'var(--accent)', borderRadius: 2,
             display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
           }}>
-            <svg width="14" height="14" viewBox="0 0 14 14">
+            <svg width="16" height="16" viewBox="0 0 14 14">
               <rect x="1" y="1" width="5" height="5" fill="#000" />
               <circle cx="10.5" cy="3.5" r="2.5" fill="#000" />
               <polygon points="7,8 13,13 1,13" fill="#000" />
             </svg>
           </div>
-          <span style={{ fontFamily: 'var(--font-head)', fontSize: 15, fontWeight: 800, letterSpacing: '0.08em', color: 'var(--text)' }}>
-            SHAPEFORGE
+          <span style={{
+            fontFamily: 'var(--font-head)', fontSize: 18,
+            fontWeight: 800, letterSpacing: '0.08em', color: 'var(--text)',
+          }}>
+            CANVAS COMPOSER
           </span>
-          <span style={{ fontSize: 10, color: 'var(--text-dim)', letterSpacing: '0.1em', marginLeft: 2 }}>
-            — CANVAS COMPOSER
-          </span>
-
-          {/* FIX #3 — layer count */}
           <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center', gap: 12 }}>
-            <span style={{ fontSize: 10, color: 'var(--text-muted)', letterSpacing: '0.08em' }}>
+            <span style={{ fontSize: 12, color: 'var(--text-muted)', letterSpacing: '0.08em' }}>
               {layers.length} LAYER{layers.length !== 1 ? 'S' : ''}
             </span>
             <div style={{
-              width: 6, height: 6, borderRadius: '50%',
+              width: 7, height: 7, borderRadius: '50%',
               background: 'var(--accent)', animation: 'pulse 2s infinite',
             }} />
           </div>
         </div>
 
-        {/* LEFT PANEL */}
+        {/* ── LEFT PANEL ── */}
         <div style={{
           background: 'var(--surface)', borderRight: '1px solid var(--border)',
           padding: '20px 16px', overflowY: 'auto',
@@ -254,34 +251,39 @@ export default function App() {
           <Label>Shape</Label>
           <ShapePicker value={shape} onChange={setShape} />
           <Divider />
+
           <Label>Color</Label>
           <ColorPicker value={color} onChange={setColor} />
-          <div style={{ marginTop: 8, display: 'flex', alignItems: 'center', gap: 8 }}>
+          <div style={{ marginTop: 9, display: 'flex', alignItems: 'center', gap: 8 }}>
             <div style={{
-              width: 12, height: 12, borderRadius: 1,
+              width: 14, height: 14, borderRadius: 2,
               background: COLOR_MAP[color],
               boxShadow: `0 0 8px ${COLOR_MAP[color]}99`,
+              flexShrink: 0,
             }} />
-            <span style={{ fontSize: 11, color: 'var(--text-muted)' }}>
+            <span style={{ fontSize: 12, color: 'var(--text-muted)' }}>
               {color} — {COLOR_MAP[color]}
             </span>
           </div>
           <Divider />
+
           <Label>Fit Size</Label>
           <StyledSelect<number> value={size} onChange={setSize} options={SIZE_OPTIONS} />
           <Divider />
+
           <Label>Position</Label>
           <PositionGrid value={position} onChange={setPosition} />
-          <div style={{ marginTop: 8, fontSize: 10, color: 'var(--text-dim)', letterSpacing: '0.06em' }}>
+          <div style={{ marginTop: 9, fontSize: 12, color: 'var(--text-muted)', letterSpacing: '0.06em' }}>
             {POSITION_OPTIONS.find(p => p.value === position)?.label ?? position}
           </div>
           <Divider />
+
           <button
             onClick={() => addLayer(shape, color, size, position)}
             style={{
-              padding: '12px 0', background: 'var(--accent)', border: 'none',
+              padding: '13px 0', background: 'var(--accent)', border: 'none',
               borderRadius: 2, color: '#000', fontFamily: 'var(--font-mono)',
-              fontSize: 11, fontWeight: 700, letterSpacing: '0.12em',
+              fontSize: 13, fontWeight: 700, letterSpacing: '0.12em',
               cursor: 'pointer', display: 'flex', alignItems: 'center',
               justifyContent: 'center', gap: 8, transition: 'opacity 0.15s, transform 0.1s',
             }}
@@ -290,16 +292,11 @@ export default function App() {
             onMouseDown={(e)  => (e.currentTarget.style.transform = 'scale(0.97)')}
             onMouseUp={(e)    => (e.currentTarget.style.transform = 'scale(1)')}
           >
-            <span style={{ fontSize: 16, lineHeight: 1 }}>+</span> ADD SHAPE
+            <span style={{ fontSize: 18, lineHeight: 1 }}>+</span> ADD SHAPE
           </button>
-
-          {/* FIX #5 — footer stays dim intentionally */}
-          <div style={{ marginTop: 'auto', paddingTop: 24, fontSize: 9, color: 'var(--text-dim)', letterSpacing: '0.06em', lineHeight: 1.8 }}>
-            CANVAS COMPOSER v2.0<br />NO LIBS · CANVAS API · REACT 18
-          </div>
         </div>
 
-        {/* CANVAS CENTER */}
+        {/* ── CENTER CANVAS ── */}
         <div style={{
           background: 'var(--bg)', display: 'flex',
           alignItems: 'center', justifyContent: 'center',
@@ -316,51 +313,62 @@ export default function App() {
           }}>
             <canvas ref={canvasRef} width={CANVAS_WIDTH} height={CANVAS_HEIGHT} style={{ display: 'block' }} />
           </div>
-
-          {/* FIX #4 — Empty canvas message */}
           {layers.length === 0 && (
             <div style={{
               position: 'absolute', pointerEvents: 'none',
               textAlign: 'center', color: 'var(--text-muted)',
-              fontSize: 11, letterSpacing: '0.1em',
+              fontSize: 13, letterSpacing: '0.1em',
             }}>
-              <div style={{ fontSize: 28, marginBottom: 8, opacity: 0.3 }}>◻</div>
+              <div style={{ fontSize: 32, marginBottom: 10, opacity: 0.3 }}>◻</div>
               ADD A SHAPE TO BEGIN
             </div>
           )}
         </div>
 
-        {/* RIGHT PANEL — LAYERS */}
+        {/* ── RIGHT PANEL — LAYERS ── */}
         <div style={{
           background: 'var(--surface)', borderLeft: '1px solid var(--border)',
           display: 'flex', flexDirection: 'column', overflow: 'hidden',
         }}>
           <div style={{
-            padding: '14px 14px 10px', borderBottom: '1px solid var(--border)',
+            padding: '16px 14px 12px', borderBottom: '1px solid var(--border)',
             display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexShrink: 0,
           }}>
-            <span style={{ fontSize: 9, fontWeight: 700, letterSpacing: '0.12em', color: 'var(--text-dim)', textTransform: 'uppercase' }}>
+            <span style={{
+              fontSize: 11, fontWeight: 700, letterSpacing: '0.12em',
+              color: 'var(--text-muted)', textTransform: 'uppercase',
+            }}>
               Layers
             </span>
             <span style={{
-              fontSize: 9, color: 'var(--accent)',
+              fontSize: 11, color: 'var(--accent)',
               background: 'rgba(200,255,0,0.08)',
-              padding: '2px 6px', borderRadius: 2, letterSpacing: '0.06em',
+              padding: '2px 8px', borderRadius: 2, letterSpacing: '0.06em',
             }}>
               {layers.length}
             </span>
           </div>
 
-          <div style={{ flex: 1, overflowY: 'auto', padding: '8px', display: 'flex', flexDirection: 'column', gap: 2 }}>
+          <div style={{
+            flex: 1, overflowY: 'auto', padding: '8px',
+            display: 'flex', flexDirection: 'column', gap: 2,
+          }}>
             {layers.length === 0 ? (
-              // FIX #8 — "No layers yet"
-              <div style={{ textAlign: 'center', marginTop: 40, color: 'var(--text-muted)', fontSize: 11, letterSpacing: '0.06em', lineHeight: 1.8 }}>
+              <div style={{
+                textAlign: 'center', marginTop: 40,
+                color: 'var(--text-muted)', fontSize: 13,
+                letterSpacing: '0.06em', lineHeight: 1.8,
+              }}>
                 No layers yet.<br />
-                <span style={{ fontSize: 9, opacity: 0.6 }}>ADD SHAPE to start.</span>
+                <span style={{ fontSize: 11, opacity: 0.6 }}>ADD SHAPE to start.</span>
               </div>
             ) : (
               layers.map((layer, i) => (
-                <LayerRow key={layer.id} index={i} layer={layer} onDelete={deleteLayer} isNew={layer.id === latestId && i === 0} />
+                <LayerRow
+                  key={layer.id} index={i} layer={layer}
+                  onDelete={deleteLayer}
+                  isNew={layer.id === latestId && i === 0}
+                />
               ))
             )}
           </div>
@@ -368,12 +376,14 @@ export default function App() {
           {layers.length > 0 && (
             <div style={{
               padding: '10px 14px', borderTop: '1px solid var(--border)',
-              fontSize: 9, color: 'var(--text-dim)', letterSpacing: '0.06em', lineHeight: 1.8, flexShrink: 0,
+              fontSize: 11, color: 'var(--text-muted)',
+              letterSpacing: '0.06em', lineHeight: 1.8, flexShrink: 0,
             }}>
               STACK ↑ NEWEST ON TOP<br />CLICK ✕ TO REMOVE
             </div>
           )}
         </div>
+
       </div>
     </>
   );
