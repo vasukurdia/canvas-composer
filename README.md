@@ -1,4 +1,4 @@
-# Canvas Shape Composer
+# Canvas Composer
 
 A React + TypeScript canvas application for composing and managing shapes as distinct layers.
 
