@@ -57,8 +57,8 @@ canvas-app/
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/YOUR_USERNAME/canvas-shape-composer.git
-cd canvas-shape-composer
+git clone https://github.com/vasukurdia/canvas-composer.git
+cd canvas-composer
 
 # 2. Install dependencies
 npm install
@@ -86,14 +86,3 @@ npm run lint     # Run ESLint
 - **9-point Alignment**: Top-Left, Top-Center, Top-Right, Middle-Left, Center, Middle-Right, Bottom-Left, Bottom-Center, Bottom-Right
 - **Layer management**: New shapes stack on top; each layer can be individually deleted
 - **Performant redraw**: Canvas redraws only when the layers array changes
-
-## GitHub Commit History (suggested milestones)
-
-1. `init: project scaffold with Vite + React + TypeScript`
-2. `feat: define types, constants, and canvas drawing utilities`
-3. `feat: implement useLayers and useCanvas hooks`
-4. `feat: build Controls panel with Select components`
-5. `feat: build CanvasView component`
-6. `feat: build LayerPanel and LayerItem components`
-7. `feat: wire App together — add and delete shapes`
-8. `style: CSS Modules layout and design polish`
