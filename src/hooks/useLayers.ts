@@ -15,8 +15,7 @@ export function useLayers(): UseLayers {
 
   const addLayer = useCallback(
     (type: ShapeType, color: ColorName, size: number, position: PositionKey) => {
-      const newLayer: Layer = { id: genId(), type, color, size, position };
-      // New shapes go to the top (index 0 = newest)
+      const newLayer: Layer = { id: genId(), type, color, size, position,createdAt: Date.now()};
       setLayers((prev) => [newLayer, ...prev]);
     },
     [],

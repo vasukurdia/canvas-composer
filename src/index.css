@@ -6,9 +6,9 @@
   --border2:    #3a3a3a;
   --accent:     #c8ff00;
   --accent2:    #00ffd1;
-  --text:       #ffffff;        /* white */
-  --text-muted: #aaaaaa;        /* light grey */
-  --text-dim:   #666666;        /* dim grey */
+  --text:       #ffffff;
+  --text-muted: #aaaaaa;
+  --text-dim:   #666666;
   --danger:     #ff4444;
   --font-mono:  'Space Mono', monospace;
   --font-head:  'Syne', sans-serif;

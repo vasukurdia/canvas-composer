@@ -21,18 +21,14 @@ export function getShapeOrigin(
     B: canvasH - size,
   };
 
-  // pos is like 'TL', 'C', 'BR', etc.
   if (pos === 'C') return [xMap['C'], yMap['M']];
 
-  const yChar = pos[0]; // T | M | B
-  const xChar = pos[1]; // L | C | R
+  const yChar = pos[0];
+  const xChar = pos[1];
 
   return [xMap[xChar] ?? 0, yMap[yChar] ?? 0];
 }
 
-/**
- * Draw a single layer onto the canvas context.
- */
 export function drawLayer(
   ctx: CanvasRenderingContext2D,
   layer: Layer,
@@ -60,10 +56,8 @@ export function drawLayer(
     }
 
     case 'Triangle': {
-  // Isosceles triangle, apex at top, base at bottom
-  // No centroid offset — keep within bounding box
   const apexX = x + size / 2;
-  const apexY = y;                // apex at top of bounding box
+  const apexY = y;
   const baseY = y + size;
   ctx.moveTo(apexX, apexY);
   ctx.lineTo(x, baseY);
@@ -75,11 +69,6 @@ export function drawLayer(
   }
 }
 
-/**
- * Redraw all layers on a canvas element.
- * Layers array is ordered newest-first (index 0 = top of stack).
- * We paint oldest-first so newer layers appear on top.
- */
 export function redrawCanvas(
   canvas: HTMLCanvasElement,
   layers: Layer[],
@@ -91,7 +80,6 @@ export function redrawCanvas(
 
   ctx.clearRect(0, 0, canvasW, canvasH);
 
-  // layers[0] is newest → draw in reverse so it ends up on top
   const drawOrder = [...layers].reverse();
   drawOrder.forEach((layer) => drawLayer(ctx, layer, canvasW, canvasH));
 }

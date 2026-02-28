@@ -29,7 +29,6 @@ export function Select<T extends string | number>({
         value={value}
         onChange={(e) => {
           const raw = e.target.value;
-          // Preserve number type if original value was number
           const coerced = typeof value === 'number' ? (Number(raw) as T) : (raw as T);
           onChange(coerced);
         }}
