@@ -86,3 +86,8 @@ npm run lint     # Run ESLint
 - **9-point Alignment**: Top-Left, Top-Center, Top-Right, Middle-Left, Center, Middle-Right, Bottom-Left, Bottom-Center, Bottom-Right
 - **Layer management**: New shapes stack on top; each layer can be individually deleted
 - **Performant redraw**: Canvas redraws only when the layers array changes
+
+## 📸 Screenshots
+
+### 🔹 Home Page
+![Screenshot 1](./images/Screenshot1.jpg)
