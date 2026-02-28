@@ -1,10 +1,6 @@
 import type { Layer, PositionKey } from '../types';
 import { COLOR_MAP } from '../constants';
 
-/**
- * Compute the top-left (x, y) origin of a shape's bounding box
- * given the 9-point alignment position.
- */
 export function getShapeOrigin(
   pos: PositionKey,
   size: number,
