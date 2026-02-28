@@ -89,5 +89,7 @@ npm run lint     # Run ESLint
 
 ## 📸 Screenshots
 
-### 🔹 Home Page
+### 🔹
 ![Screenshot 1](./images/Screenshot1.jpg)
+### 🔹
+![Screenshot 2](./images/Screenshot2.jpg)
